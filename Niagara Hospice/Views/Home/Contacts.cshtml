@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Contacts Page";
+}
+
+<div class="container">
+    <h1>Contacts</h1>
+    <h3>Employee Lookup:</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Name: </label><br />
+            <input type="search" />
+        </div>
+        <div class="col-md-pull-4">
+            <label>Role: </label><br />
+            <input type="search" />
+            <input type="button" value="Filter contacts" id="btnNewMeeting" class="btn btn-default">
+        </div>
+    </div>
+
+
+
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date Added</th>
+                <th>Role</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ryan</td>
+                <td>Christie</td>
+                <td>2/7/2015</td>
+                <td>Administrator</td>
+                <td>
+                    <a href="">Edit </a>|
+                    <a href=""> Details</a> |
+                    <a href=""> Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Chris</td>
+                <td>Wales</td>
+                <td>2/6/2015</td>
+                <td>Administrator</td>
+                <td>
+                    <a href="">Edit </a>|
+                    <a href=""> Details</a> |
+                    <a href=""> Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Thomas</td>
+                <td>Hoad</td>
+                <td>2/5/2015</td>
+                <td>Administrator</td>
+                <td>
+                    <a href="">Edit </a>|
+                    <a href=""> Details</a> |
+                    <a href=""> Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Dylan</td>
+                <td>Labonte</td>
+                <td>2/4/2015</td>
+                <td>Administrator</td>
+                <td>
+                    <a href="">Edit </a>|
+                    <a href=""> Details</a> |
+                    <a href=""> Delete</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Meetings</h2>
+        <p>Meetings at a glance.</p>
+        <p>@Html.ActionLink("Go to Meetings >>", "Meetings", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Schedules</h2>
+        <p>Schedules at a glance.</p>
+        <p>@Html.ActionLink("Go to Schedules >>", "Schedules", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Contacts</h2>
+        <p>Contacts at a glance.</p>
+        <p>@Html.ActionLink("Go to Contacts >>", "Contacts", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Resources</h2>
+        <p>Resources at a glance.</p>
+        <p>@Html.ActionLink("Go to Resources >>", "Resources", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+</div>

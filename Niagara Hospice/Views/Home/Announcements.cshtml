@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Announcements";
+}
+
+<div class="well">
+    <h1>Announcements and Notices:</h1>
+    <p class="lead">Hospice Niagara will be launching a new volunteer portal. Stay tuned.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Meetings</h2>
+        <p>Meetings at a glance.</p>
+        <p>@Html.ActionLink("Go to Meetings >>", "Meetings", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Schedules</h2>
+        <p>Schedules at a glance.</p>
+        <p>@Html.ActionLink("Go to Schedules >>", "Schedules", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Contacts</h2>
+        <p>Contacts at a glance.</p>
+        <p>@Html.ActionLink("Go to Contacts >>", "Contacts", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Resources</h2>
+        <p>Resources at a glance.</p>
+        <p>@Html.ActionLink("Go to Resources >>", "Resources", "Home", new { @class = "btn btn-default" })</p>
+    </div>
+</div>

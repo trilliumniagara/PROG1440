@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Niagara_Hospice.Models.FileStoreViewModel>
+
+@{
+    ViewBag.Title = "Resources";
+}
+<div class="well">
+    <h1>Your resources:</h1>
+@if (Roles.IsUserInRole("Board"))
+{
+    <h4>Upload New File</h4>
+    <p>
+        @using (Html.BeginForm("Resources", "home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <label for="fileDescription">Description:</label> <input type="text" name="fileDescription" /><br />
+            <input type="file" name="FileUpload1" /><br />
+            <input type="submit" name="Submit" id="Submit" value="Upload" />
+        }
+    </p>
+}
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileDescription)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Download", "Download", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Meetings</h2>
+            <p>Meetings at a glance.</p>
+            <p>@Html.ActionLink("Go to Meetings >>", "Meetings", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Schedules</h2>
+            <p>Schedules at a glance.</p>
+            <p>@Html.ActionLink("Go to Schedules >>", "Schedules", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Contacts</h2>
+            <p>Contacts at a glance.</p>
+            <p>@Html.ActionLink("Go to Contacts >>", "Contacts", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Resources</h2>
+            <p>Resources at a glance.</p>
+            <p>@Html.ActionLink("Go to Resources >>", "Resources", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+    </div>

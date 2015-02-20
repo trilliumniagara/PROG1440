@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Meetings";
+}
+<script type="text/javascript"
+        src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnNewMeeting").click(function () {
+            $(".panelText").slideToggle("fast");
+            $("span", this).text(function(i, text){
+                return text === "New Meeting" ? "Cancel Meeting Creation" : "New Meeting";
+            })
+        });
+    });
+</script>
+
+<div class="well">
+    @*<input class="btn btn-default" type="button" value="New Meeting" id="btnNewMeeting" />*@
+    <button id="btnNewMeeting" class="btn btn-default">
+        <span>New Meeting</span>
+    </button><br />
+    <div class="panelText" style="display:none">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <!--LEFT FORM PANEL-->
+                    <h3>Meeting details</h3>
+                    <label>Title: </label><br />
+                    <input type="text" name="txtMeetingTitle" id="txtMeetingTitle"><br /><br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Date: </label><br />
+                            <input type="date" name="MeetingDate" id="MeetingDate">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Time: </label><br />
+                            <input type="time" name="txtMeetingTime" id="txtMeetingTime"><br /><br />
+                        </div>
+                    </div>
+                    <label>Location: </label><br />
+                    <input type="text" name="txtMeetingLoc" id="txtMeetingLoc"><br /><br />
+                    <label>Description: </label><br />
+                    <textarea name="txtMeetingDesc" id="txtMeetingDesc" style="width:100%;height:100px"></textarea><br /><br />
+                    <label>Attach File: </label><br />
+                    <input type="file" name="MeetingFile" id="txtMeetingFile"><br /><br />
+                </div>
+                <!--RIGHT FORM PANEL-->
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <h3>Who to Invite</h3>
+                        <input type="checkbox" name="chk1" id="chk1"><label>Staff  </label>
+                        <input type="checkbox" name="chk2" id="chk2"><label>Board </label>
+                        <input type="checkbox" name="chk2" id="chk2"><label>Volunteers  </label><br /><br />
+                        <label>Employee Lookup:</label><br />
+                        <input type="search" /><br /><br />
+                        <select size="10" style="width:400px; height:215px">
+                            <option>Jenny DiAngelo - Volunteer</option>
+                            <option>Darren Darrenson - Board</option>
+                            <option>Michael Jillson - Staff</option>
+                            <option>Dan Danneletto - Volunteer</option>
+                        </select><br /><br /><br />
+                        <input type="submit" value="Submit new Meeting"/>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--MEETING GRID-->
+
+<div class="container">
+    <h1>Upcoming Meetings:</h1>
+    <table class="table table-condensed table-hover" >
+        <thead style="width: 90px;">
+            <tr>
+                <th style="width: 200px;">Meeting Title</th>
+                <th style="width: 100px;">Date</th>
+                <th style="width: 100px;">Time</th>
+                <th style="width: 100px;">Location</th>
+                <th style="width: 200px;">View Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Board meeting</td>
+                <td>Feb 25th, 2015</td>
+                <td>3:30 PM</td>
+                <td>Board Room</td>
+                <td><a href="">View Info</a></td>
+            </tr>
+            <tr>
+                <td>Free Employee Lunch!</td>
+                <td>Mar 16th, 2015</td>
+                <td>1:00 PM</td>
+                <td>Lunch Room</td>
+                <td><a href="">View Info</a></td>
+            </tr>
+            <tr>
+                <td>Volunteer Meeting</td>
+                <td>Apr 1st, 2015</td>
+                <td>8:30 AM</td>
+                <td>Board Room</td>
+                <td><a href="">View Info</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Meetings</h2>
+            <p>Meetings at a glance.</p>
+            <p>@Html.ActionLink("Go to Meetings >>", "Meetings", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Schedules</h2>
+            <p>Schedules at a glance.</p>
+            <p>@Html.ActionLink("Go to Schedules >>", "Schedules", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Contacts</h2>
+            <p>Contacts at a glance.</p>
+            <p>@Html.ActionLink("Go to Contacts >>", "Contacts", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Resources</h2>
+            <p>Resources at a glance.</p>
+            <p>@Html.ActionLink("Go to Resources >>", "Resources", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+    </div>
