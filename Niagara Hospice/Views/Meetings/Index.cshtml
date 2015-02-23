@@ -2,9 +2,8 @@
 @{
     ViewBag.Title = "Meetings";
 }
-
-<script type="text/javascript"
-        src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<!--Javascript for Create Meeting Button-->
 <script type="text/javascript">
     $(document).ready(function () {
         $("#btnNewMeeting").click(function () {
@@ -14,7 +13,6 @@
             })
         });
     });
-
 </script>
 
 <div class="well">
@@ -25,29 +23,32 @@
     <div class="panelText" style="display:none">
         <div class="row">
             <div class="form-group">
-                @using (Html.BeginForm("Meetings", "home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("Index", "Meetings", FormMethod.Post))
                 {
                     <div class="col-md-4">
                         <!--LEFT FORM PANEL-->
+                        @Html.AntiForgeryToken()
                         <h3>Meeting details</h3>
                         <label>Title: </label><br />
-                        <input type="text" name="txtMeetingTitle" id="txtMeetingTitle"><br /><br />
+                        <input type="text" name="Title" id="txtMeetingTitle"><br /><br />
+                        <label>Date: </label><br />
+                        <input type="date" name="Date" id="MeetingDate"><br /><br />
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Date: </label><br />
-                                <input type="date" name="MeetingDate" id="MeetingDate">
+                                <label>Start Time: </label><br />
+                                <input type="time" name="StartTime" id="txtMeetingTime"><br /><br />
                             </div>
                             <div class="col-md-4">
-                                <label>Time: </label><br />
-                                <input type="time" name="txtMeetingTime" id="txtMeetingTime"><br /><br />
+                                <label>End Time: </label><br />
+                                <input type="time" name="EndTime" id="txtMeetingTime"><br /><br />
                             </div>
-                        </div>
+                        </div> 
                         <label>Location: </label><br />
-                        <input type="text" name="txtMeetingLoc" id="txtMeetingLoc"><br /><br />
+                        <input type="text" name="Location" id="txtMeetingLoc"><br /><br />
                         <label>Description: </label><br />
-                        <textarea name="txtMeetingDesc" id="txtMeetingDesc" style="width:100%;height:100px"></textarea><br /><br />
-                        <label>Attach File: </label><br />
-                        <input type="file" name="MeetingFile" id="txtMeetingFile"><br /><br />
+                        <textarea name="Description" id="txtMeetingDesc" style="width:100%;height:100px"></textarea><br /><br />
+                        @*<label>Attach File: </label><br />
+                        <input type="file" name="MeetingFile" id="txtMeetingFile"><br /><br />*@
                     </div>
                     <!--RIGHT FORM PANEL-->
                     <div class="form-group">
