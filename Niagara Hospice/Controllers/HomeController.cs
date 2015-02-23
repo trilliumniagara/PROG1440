@@ -10,7 +10,7 @@ using Niagara_Hospice.Models;
 using System.IO;
 using System.Data.SqlClient;
 
-
+//databasefix
 namespace Niagara_Hospice.Controllers
 {
     public class HomeController : Controller
