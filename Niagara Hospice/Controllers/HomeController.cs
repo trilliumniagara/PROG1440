@@ -10,7 +10,7 @@ using Niagara_Hospice.Models;
 using System.IO;
 using System.Data.SqlClient;
 
-
+//databasefixx
 namespace Niagara_Hospice.Controllers
 {
     public class HomeController : Controller
@@ -144,7 +144,7 @@ namespace Niagara_Hospice.Controllers
 
         public ActionResult Schedules()
         {
-            ViewBag.Message = "Meetings page.";
+            ViewBag.Message = "Schedules page.";
 
             return View();
         }
