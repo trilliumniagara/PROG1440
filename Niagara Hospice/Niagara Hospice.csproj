@@ -259,6 +259,7 @@
     <Content Include="Views\Home\Schedules.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Meetings\Index.cshtml" />
+    <Content Include="Views\Meetings\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

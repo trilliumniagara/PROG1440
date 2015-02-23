@@ -47,7 +47,7 @@ namespace Niagara_Hospice.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MeetingID,Date,StartTime,EndTime,Location,Type,Description,Requirements,Lead")] Meeting meeting)
+        public ActionResult Create([Bind(Include = "MeetingID,Title,Date,StartTime,EndTime,Location,Type,Description,Requirements,Lead")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +58,7 @@ namespace Niagara_Hospice.Controllers
 
             return View(meeting);
         }
+
 
         // GET: Meetings/Edit/5
         public ActionResult Edit(int? id)

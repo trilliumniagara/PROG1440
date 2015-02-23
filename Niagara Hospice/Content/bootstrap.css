@@ -834,9 +834,7 @@ pre code {
 .col-sm-12,
 .col-md-1,
 .col-md-2,
-.col-md-3{
-    padding-top: 40px;
-}
+.col-md-3,
 .col-md-4,
 .col-md-5,
 .col-md-6,
@@ -1700,6 +1698,12 @@ input[type="checkbox"]:focus {
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   height: auto;
+}
+
+.form-control-inline {
+    min-width: 0;
+    width: auto;
+    display: inline;
 }
 
 .form-control:-moz-placeholder {
