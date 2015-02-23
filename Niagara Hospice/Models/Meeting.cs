@@ -9,6 +9,8 @@ namespace Niagara_Hospice.Models
     {
         public int MeetingID { get; set; }
 
+        public string Title { get; set; }
+
         public DateTime Date { get; set; }
 
         public DateTime StartTime { get; set; }
