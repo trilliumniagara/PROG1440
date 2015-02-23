@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Schedules";
+}
+
+<div class="well">
+    <h1>Your Schedules:</h1>
+    <p class="lead">Your schedule this month.</p>
+    <div class="row">
+        <div class="col-md-3">
+            <font size="5"></font>
+                @Html.ActionLink("Previous Month", "Prev")
+        </div>
+        <div class="col-md-3">
+            @Html.ActionLink("Print", "Print")
+        </div>
+        <div class="col-md-3">
+            @Html.ActionLink("Export", "Export")
+        </div>
+        <div class="col-md-3">
+            @Html.ActionLink("Next Month", "Next")
+        </div>
+
+
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Meetings</h2>
+            <p>Meetings at a glance.</p>
+            <p>@Html.ActionLink("Go to Meetings >>", "Meetings", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Schedules</h2>
+            <p>Schedules at a glance.</p>
+            <p>@Html.ActionLink("Go to Schedules >>", "Schedules", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+
+        <div class="col-md-3">
+            <h2>Contacts</h2>
+            <p>Contacts at a glance.</p>
+            <p>@Html.ActionLink("Go to Contacts >>", "Contacts", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Resources</h2>
+            <p>Resources at a glance.</p>
+            <p>@Html.ActionLink("Go to Resources >>", "Resources", "Home", new { @class = "btn btn-default" })</p>
+        </div>
+    </div>

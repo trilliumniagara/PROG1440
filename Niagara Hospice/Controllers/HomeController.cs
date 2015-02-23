@@ -144,7 +144,7 @@ namespace Niagara_Hospice.Controllers
 
         public ActionResult Schedules()
         {
-            ViewBag.Message = "Meetings page.";
+            ViewBag.Message = "Schedules page.";
 
             return View();
         }
