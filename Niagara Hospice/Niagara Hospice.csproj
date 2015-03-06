@@ -164,6 +164,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="DAL\NiagaraHospiceCFEntities.cs" />
     <Compile Include="FileStore1.cs" />
     <Compile Include="Global.asax.cs">
