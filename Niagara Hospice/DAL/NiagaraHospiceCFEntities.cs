@@ -16,6 +16,7 @@ namespace Niagara_Hospice
         public DbSet<AspNetSubRoles> Users { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
+        public DbSet<Announcements> Announcements { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
