@@ -16,9 +16,27 @@ namespace Niagara_Hospice.Controllers
         private NiagaraHospiceCFEntities db = new NiagaraHospiceCFEntities();
 
         // GET: Meetings
-        public ActionResult Index()
+        public ActionResult Index(string Sorting_Order, string Search_Data)
         {
-            return View(db.Meetings.ToList());
+            ViewBag.SortingName = String.IsNullOrEmpty(Sorting_Order) ? "Title" : "";
+
+            var meetings = from f in db.Meetings select f;
+            {
+                if(Search_Data != null)
+                    meetings = meetings.Where(f => f.Title.ToUpper().Contains(Search_Data.ToUpper()));
+            }
+
+            switch (Sorting_Order)
+            {
+                case "Title":
+                    meetings = meetings.OrderByDescending(f => f.Title);
+                    break;
+                case "Date":
+                    meetings = meetings.OrderByDescending(f => f.Date);
+                    break;
+            }
+
+            return View(meetings.ToList());
         }
 
         // GET: Meetings/Details/5
@@ -80,7 +98,7 @@ namespace Niagara_Hospice.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MeetingID,Date,StartTime,EndTime,Location,Type,Description,Requirements,Lead")] Meeting meeting)
+        public ActionResult Edit([Bind(Include = "MeetingID, Title, Date,StartTime,EndTime,Location,Type,Description,Requirements,Lead")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {

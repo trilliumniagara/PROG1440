@@ -262,6 +262,9 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Meetings\Index.cshtml" />
     <Content Include="Views\Meetings\Create.cshtml" />
+    <Content Include="Views\Meetings\Edit.cshtml" />
+    <Content Include="Views\Meetings\Delete.cshtml" />
+    <Content Include="Views\Meetings\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

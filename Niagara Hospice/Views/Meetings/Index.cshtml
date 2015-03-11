@@ -2,132 +2,75 @@
 @{
     ViewBag.Title = "Meetings";
 }
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<!--Javascript for Create Meeting Button-->
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#btnNewMeeting").click(function () {
-            $(".panelText").slideToggle("fast");
-            $("span", this).text(function(i, text){
-                return text === "New Meeting" ? "Cancel Meeting Creation" : "New Meeting";
-            })
-        });
-    });
-</script>
-
 <div class="well">
-    @*<input class="btn btn-default" type="button" value="New Meeting" id="btnNewMeeting" />*@
-    <button id="btnNewMeeting" class="btn btn-default">
-        <span>New Meeting</span>
-    </button><br />
-    <div class="panelText" style="display:none">
-        <div class="row">
-            <div class="form-group">
-                @using (Html.BeginForm("Index", "Meetings", FormMethod.Post))
-                {
-                    <div class="col-md-4">
-                        <!--LEFT FORM PANEL-->
-                        @Html.AntiForgeryToken()
-                        <h3>Meeting details</h3>
-                        <label>Title: </label><br />
-                        <input type="text" name="Title" id="txtMeetingTitle"><br /><br />
-                        <label>Date: </label><br />
-                        <input type="date" name="Date" id="MeetingDate"><br /><br />
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Start Time: </label><br />
-                                <input type="time" name="StartTime" id="txtMeetingTime"><br /><br />
-                            </div>
-                            <div class="col-md-4">
-                                <label>End Time: </label><br />
-                                <input type="time" name="EndTime" id="txtMeetingTime"><br /><br />
-                            </div>
-                        </div> 
-                        <label>Location: </label><br />
-                        <input type="text" name="Location" id="txtMeetingLoc"><br /><br />
-                        <label>Description: </label><br />
-                        <textarea name="Description" id="txtMeetingDesc" style="width:100%;height:100px"></textarea><br /><br />
-                        @*<label>Attach File: </label><br />
-                        <input type="file" name="MeetingFile" id="txtMeetingFile"><br /><br />*@
-                    </div>
-                    <!--RIGHT FORM PANEL-->
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <h3>Who to Invite</h3>
-                            <input type="checkbox" name="chk1" id="chk1"><label>Staff  </label>
-                            <input type="checkbox" name="chk2" id="chk2"><label>Board </label>
-                            <input type="checkbox" name="chk2" id="chk2"><label>Volunteers  </label><br /><br />
-                            <label>Employee Lookup:</label><br />
-                            <input type="search" /><br /><br />
-                            <select size="10" style="width:400px; height:215px">
-                                <option>Jenny DiAngelo - Volunteer</option>
-                                <option>Darren Darrenson - Board</option>
-                                <option>Michael Jillson - Staff</option>
-                                <option>Dan Danneletto - Volunteer</option>
-                            </select><br /><br /><br />
-                            <input type="submit" value="Submit new Meeting" />
+   
+    <p>@Html.ActionLink("New Meeting", "Create", "Create", new { @class = "btn btn-default" })</p>
 
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
-</div>
-<!--MEETING GRID-->
-<div class="container">
-    <h1>Upcoming Meetings:</h1>
-    <table class="table table-condensed table-hover">
-        <tr>
-            <th>
-                Title
-            </th>
-            <th>
-                Date
-            </th>
-            <th>
-                Start Time
-            </th>
-            <th>
-                End Time
-            </th>
-            <th>
-                Location
-            </th>
-            <th>
-                Type
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
+    <!--MEETING GRID-->
+    <div class="container">
+        <h1>Upcoming Meetings:</h1>
+        @using (Html.BeginForm())
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.ActionLink("View Info", "Info", new { id = item.MeetingID })
-                </td>
-            </tr>
+            <p>
+                Search Name: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
+                <input type="submit" value="Find" />
+            </p>
         }
+        <br />
+        <table class="table table-condensed table-hover">
+            <tr>
+                <th>
+                    @Html.ActionLink("Title", "Index", new { Sorting_Order = ViewBag.SortingName })
+                </th>
+                <th>
+                    @Html.ActionLink("Date", "Index", new { Sorting_Order = ViewBag.SortingName })
+                </th>
+                <th>
+                    Start Time
+                </th>
+                <th>
+                    End Time
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Type
+                </th>
+                <th></th>
+            </tr>
 
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.ActionLink("View Info", "Details", new { id = item.MeetingID }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MeetingID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MeetingID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
 </div>
 
 
