@@ -161,7 +161,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AnnouncementsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
@@ -187,13 +186,8 @@
     <Compile Include="Migrations\201502230037003_Add Title Field for Meeting.Designer.cs">
       <DependentUpon>201502230037003_Add Title Field for Meeting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503112053295_Announcements.cs" />
-    <Compile Include="Migrations\201503112053295_Announcements.Designer.cs">
-      <DependentUpon>201503112053295_Announcements.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Announcements.cs" />
     <Compile Include="Models\AspNetSubRoles.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\FileStore.cs" />
@@ -269,11 +263,6 @@
     <Content Include="Views\Meetings\Edit.cshtml" />
     <Content Include="Views\Meetings\Delete.cshtml" />
     <Content Include="Views\Meetings\Details.cshtml" />
-    <Content Include="Views\Announcements\Create.cshtml" />
-    <Content Include="Views\Announcements\Delete.cshtml" />
-    <Content Include="Views\Announcements\Details.cshtml" />
-    <Content Include="Views\Announcements\Edit.cshtml" />
-    <Content Include="Views\Announcements\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,9 +286,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502230037003_Add Title Field for Meeting.resx">
       <DependentUpon>201502230037003_Add Title Field for Meeting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503112053295_Announcements.resx">
-      <DependentUpon>201503112053295_Announcements.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
