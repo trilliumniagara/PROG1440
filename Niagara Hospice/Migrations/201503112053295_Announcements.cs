@@ -7,7 +7,7 @@ namespace Niagara_Hospice.Migrations
     {
         public override void Up()
         {
-            CreateTable(
+            CreateTable
                 "dbo.Announcements",
                 c => new
                     {
