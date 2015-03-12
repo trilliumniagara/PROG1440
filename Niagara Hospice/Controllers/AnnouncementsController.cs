@@ -15,9 +15,27 @@ namespace Niagara_Hospice.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Announcements
-        public ActionResult Index()
+        public ActionResult Index(string Sorting_Order, string Search_Data)
         {
-            return View(db.Announcements.ToList());
+            ViewBag.SortingName = String.IsNullOrEmpty(Sorting_Order) ? "Title" : "";
+
+            var meetings = from f in db.Announcements select f;
+            {
+                if(Search_Data != null)
+                    meetings = meetings.Where(f => f.Title.ToUpper().Contains(Search_Data.ToUpper()));
+            }
+
+            switch (Sorting_Order)
+            {
+                case "Subject":
+                    meetings = meetings.OrderByDescending(f => f.Title);
+                    break;
+                case "Posted Date":
+                    meetings = meetings.OrderByDescending(f => f.PostDate);
+                    break;
+            }
+
+            return View(meetings.ToList());
         }
 
         // GET: Announcements/Details/5
@@ -27,12 +45,12 @@ namespace Niagara_Hospice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Announcements announcements = db.Announcements.Find(id);
-            if (announcements == null)
+            Announcements announcement = db.Announcements.Find(id);
+            if (announcement == null)
             {
                 return HttpNotFound();
             }
-            return View(announcements);
+            return View(announcement);
         }
 
         // GET: Announcements/Create
