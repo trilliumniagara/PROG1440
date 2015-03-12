@@ -32,7 +32,5 @@ namespace Niagara_Hospice.Models
 
         public DbSet<FileStore> FileStores { get; set; }
 
-        public System.Data.Entity.DbSet<Niagara_Hospice.Models.Announcements> Announcements { get; set; }
-
     }
 }
